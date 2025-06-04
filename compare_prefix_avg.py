@@ -1,5 +1,7 @@
 from time import time
 
+""" the running time of prefix average1 is O(n2) """
+
 def prefix_average1(S):
     n = len(S)                      # constant time
     A = [0] * n                     # O(n) time.
@@ -11,12 +13,25 @@ def prefix_average1(S):
 
     return A
 
+""" the running time of prefix average2 is O(n2) """
 def prefix_average2(S):
 
     n = len(S)                      # constant time
     A = [0] * n                     # O(n) time.
     for j in range(n):
         A[j] = sum(S[0:j+1]) / (j + 1)      # O(n) time.
+
+    return A
+
+""" the running time of prefix average3 is O(n) """
+def prefix_average3(S):
+
+    n = len(S)                      # constant time
+    A = [0] * n                     # O(n) time
+    total = 0
+    for j in range(n):
+        total += S[j]
+        A[j] = total / (j + 1)      # O(n) time.
 
     return A
 
@@ -34,4 +49,5 @@ if __name__ == "__main__":
     end_time = time()
     elapsed = end_time - start_time
     print(elapsed)
+
 
