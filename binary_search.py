@@ -1,9 +1,12 @@
+
+""" the running time of binary_search is O(log n) for sorted sequence """
+
 def binary_search(data, target, low, high):
 
     if low > high:
         return False
     else:
-        mid = (low + high) // 2     # floor division
+        mid = (low + high) // 2     # floor division O(log n) time
         if target == data[mid]:
             return True
         elif target < data[mid]:
