@@ -25,6 +25,17 @@ def unique2(S):
             return False            # found duplicate pair
     return True
 
+""" the worst-case running time of unique3 is O(2^n) """
+def unique3(S, start, stop):        # using Recursion in a wrong way
+    if stop - start <= 1 :
+        return True
+    elif not unique3(S, start, stop - 1):
+        return False
+    elif not unique3(S, start + 1, stop):
+        return False
+    else:
+        return S[start] != S[stop - 1]
+    
 if __name__ == '__main__':
     n1 = rand.randint(1, 10)
     A1 = [rand.randint(1,20) for i in range(n1)]
